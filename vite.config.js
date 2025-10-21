@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: true,
+    open: "/login",
     port: 4000,
     proxy: {
       "/api/v1": {
