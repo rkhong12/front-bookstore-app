@@ -1,0 +1,61 @@
+@use "function" as *;
+// color
+$color-primary: #2569ed;
+$color-gray: #dcdee3;
+$color-gray02: #868b94;
+
+$color-black: #132144;
+$color-white: #fff;
+$color-gray-font: #676767;
+$color-gray-bg: #f7f7f7;
+$color-gray-border: #e7e7e7;
+$color-red: #ed4c78;
+$color-blue: #0b6bbe;
+$color-gray-5: #f2f2f2;
+$color-gray-4: #666;
+$color-gray-3: #999;
+$color-gray-2: #aaa;
+$color-gray-1: #ddd;
+
+// font
+$font-base: "Pretendard", "Malgun Gothic", "맑은 고딕", "돋움", dotum,
+  sans-serif;
+$font-awesome: var(--fa-font-solid);
+
+// layout
+$headerH: fn-rem(80);
+$asideW: 260px;
+$maxW: fn-rem(1400);
+$pd40: fn-rem(80);
+
+$main-orange: #ff7e36;
+$gray-bg: #f9fafb;
+$card-bg: #fff;
+$shadow: 0 2px 8px #0001;
+$radius: 12px;
+$footer-height: 62px;
+
+$color-bg: #000;
+$color-dark: #111;
+$color-gray: #aaa;
+$color-light: #fff;
+
+$font-base: "Noto Sans KR", sans-serif;
+
+// 다크모드 색상
+$dark-colors: (
+  bg: #000,
+  primary: #ff6f0f,
+  dark: #111,
+  text: #fff,
+  gray: #aaa,
+);
+
+// 라이트모드 색상
+$light-colors: (
+  bg: #fff,
+  primary: #ff6f0f,
+  dark: #f9f9f9,
+  text: #000,
+  gray: #666,
+);

@@ -1,0 +1,66 @@
+// @use "@/assets/scss/partials/abstracts/_index.scss" as *;
+// #wrap {
+//   // overflow-x: hidden;
+//   // display: flex;
+//   // flex-direction: column;
+//   width: 100%;
+//   // min-width: $maxW;
+//   min-height: 100vh;
+
+//   &.aside-toggle {
+//     #container {
+//       padding-left: 0;
+//     }
+
+//     #aside {
+//       display: none;
+//     }
+
+//     #footer {
+//       padding-left: 0;
+//     }
+//   }
+
+//   &.wrap-wide {
+//     #container {
+//       padding: 0;
+//     }
+
+//     #footer {
+//       padding-left: 0;
+//     }
+//   }
+// }
+
+// #aside {
+//   // display: block;
+//   // position: fixed;
+//   // top: $headerH;
+//   // left: 0;
+//   // width:  100%;
+//   // height: calc(100% - $headerH);
+//   // border-right: 1px solid $color-gray-border;
+//   // background-color: $color-white;
+//   // z-index: 2;
+// }
+
+// #container {
+//   // flex: 1;
+//   max-width: $maxW;
+//   margin: 0 auto;
+
+//   &.contents {
+//     padding: 0 fn-rem(40);
+//     @include mq("md", "max") {
+//       padding: 0 fn-rem(16);
+//     }
+//   }
+// }
+
+// // #footer {
+// //   padding: 24px 0 24px $asideW;
+// // }
+
+// .layout {
+//   padding: 30px 26px;
+// }

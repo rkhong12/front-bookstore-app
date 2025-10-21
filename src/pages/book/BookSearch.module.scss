@@ -1,0 +1,30 @@
+.search {
+  max-width: fn-rem(1280);
+  margin: fn-rem(60) auto;
+  padding: 0 fn-rem(20);
+  color: #111;
+  font-family: $font-base;
+}
+
+.inner {
+  width: 100%;
+}
+
+.title {
+  font-size: fn-rem(20);
+  font-weight: 700;
+  margin-bottom: fn-rem(30);
+  line-height: 1.4;
+
+  span {
+    color: #ff4e19;
+  }
+}
+
+.loading,
+.empty {
+  text-align: center;
+  font-size: fn-rem(16);
+  color: #666;
+  padding: fn-rem(60) 0;
+}

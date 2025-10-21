@@ -1,0 +1,257 @@
+@use "@/assets/scss/partials/abstracts/_index.scss" as *;
+@use "@/assets/scss/partials/base/_index.scss" as *;
+
+.header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: fn-rem(16) fn-rem(20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: fn-rem(20);
+  }
+
+  /* 로고 */
+  &__logo {
+    height: 80px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: fn-rem(8);
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* 검색창 */
+  &__search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #f8f9fb;
+    border: 1px solid #ddd;
+    border-radius: fn-rem(40);
+    padding: fn-rem(10) fn-rem(18);
+    transition: 0.2s ease;
+
+    &:focus-within {
+      background: #fff;
+      border-color: #aaa;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: fn-rem(15);
+      color: #333;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .ico-search {
+      color: #666;
+      margin-right: fn-rem(8);
+      font-size: fn-rem(18);
+    }
+  }
+
+  /* 햄버거 버튼 */
+  &__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: fn-rem(26);
+    cursor: pointer;
+    color: #222;
+  }
+
+  /* 네비 */
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: fn-rem(20);
+
+    a,
+    button {
+      color: #1c2040;
+      font-size: fn-rem(15);
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      text-align: left;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active {
+        color: $color-primary;
+        font-weight: 700;
+        padding-bottom: fn-rem(2);
+      }
+    }
+
+    .nav-icon {
+      display: flex;
+      align-items: center;
+      gap: fn-rem(6);
+    }
+
+    .user-menu {
+      position: relative;
+
+      .user-icon {
+        font-size: fn-rem(20);
+        cursor: pointer;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+
+      &.active .user-icon {
+        color: $color-primary;
+      }
+
+      &:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 120%;
+        right: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        border-radius: fn-rem(8);
+        padding: fn-rem(12) fn-rem(16);
+        min-width: fn-rem(160);
+        display: flex;
+        flex-direction: column;
+        gap: fn-rem(8);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
+        transition: 0.2s ease;
+
+        .user-name {
+          font-weight: 600;
+          font-size: fn-rem(14);
+          color: #333;
+          margin-bottom: fn-rem(4);
+        }
+
+        a,
+        button {
+          font-size: fn-rem(14);
+          color: #444;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  /* 반응형 */
+  @media (max-width: 1024px) {
+    &__menu-btn {
+      display: block;
+    }
+
+    &__nav {
+      display: none;
+    }
+  }
+}
+
+/* 모바일 메뉴 */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 340px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: fn-rem(24);
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+  z-index: 999;
+
+  &.active {
+    right: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: fn-rem(20);
+
+    h2 {
+      font-size: fn-rem(20);
+      font-weight: 700;
+      color: #1c2040;
+    }
+
+    .mobile-menu__close {
+      background: none;
+      border: none;
+      font-size: fn-rem(24);
+      cursor: pointer;
+      color: #333;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: fn-rem(18);
+    padding-top: fn-rem(10);
+
+    a,
+    button {
+      display: block;
+      text-align: left;
+      font-size: fn-rem(18);
+      font-weight: 600;
+      color: #1c2040;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active {
+        color: $color-primary;
+      }
+    }
+
+    button {
+      padding: 0;
+    }
+  }
+}

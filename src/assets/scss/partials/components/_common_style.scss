@@ -1,0 +1,23 @@
+@use "@/assets/scss/partials/abstracts/_index.scss" as *;
+@use "@/assets/scss/partials/base/_index.scss" as *;
+
+.blind,
+.hide {
+  @include blind;
+}
+
+.only-w {
+  display: flex;
+
+  @include mq("lg", "max") {
+    display: none !important;
+  }
+}
+
+.only-m {
+  display: none;
+
+  @include mq("lg", "max") {
+    display: flex !important;
+  }
+}

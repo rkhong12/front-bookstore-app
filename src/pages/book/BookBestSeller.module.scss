@@ -1,0 +1,236 @@
+.bookBestSeller {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, $color-light 0%, $color-light 100%);
+  overflow: hidden;
+
+  .inner {
+    max-width: fn-rem(1400);
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+
+    h2 {
+      font-size: fn-rem(24);
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.3px;
+      margin-bottom: fn-rem(50);
+
+      span {
+        font-size: fn-rem(15);
+        font-weight: 400;
+        color: #888;
+        margin-left: fn-rem(10);
+      }
+    }
+  }
+
+  /* SWIPER */
+  .swiper {
+    width: 100%;
+    padding-top: fn-rem(40);
+    padding-bottom: fn-rem(80);
+    display: flex;
+    justify-content: center;
+  }
+
+  .slide {
+    width: fn-rem(240) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease-in-out;
+    transform-origin: center;
+    filter: grayscale(0.3) brightness(0.85);
+  }
+
+  .swiper-slide-active {
+    filter: none;
+    z-index: 5;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: fn-rem(10);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(fn-rem(20)) scale(0.9);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    cursor: default;
+
+    &.active {
+      pointer-events: all;
+      transform: translateY(0) scale(1.05);
+      cursor: pointer;
+    }
+
+    &:hover.active {
+      transform: translateY(fn-rem(-4)) scale(1.08);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      animation: sweep 5s linear infinite;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    @keyframes sweep {
+      0% {
+        left: -150%;
+      }
+      100% {
+        left: 150%;
+      }
+    }
+  }
+
+  .thumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f3f5f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    .rank {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(37, 105, 237, 0.9);
+      color: #fff;
+      font-size: fn-rem(18);
+      font-weight: 700;
+      padding: fn-rem(5) fn-rem(16);
+      letter-spacing: -0.2px;
+    }
+  }
+
+  .info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: fn-rem(20) fn-rem(10);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    transition: all 0.3s ease;
+
+    .title {
+      font-size: fn-rem(15.5);
+      font-weight: 600;
+      color: #111;
+      margin-bottom: fn-rem(5);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .author {
+      font-size: fn-rem(13.5);
+      color: #666;
+      margin-bottom: fn-rem(3);
+    }
+
+    .price {
+      font-size: fn-rem(14);
+      font-weight: 700;
+      color: #2569ed;
+    }
+  }
+
+  /* Fade mask */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: fn-rem(200);
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, $color-light 80%, transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, $color-light 80%, transparent);
+  }
+
+  @media (max-width: 1280px) {
+    .slide {
+      width: fn-rem(210) !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .slide {
+      width: fn-rem(180) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .slide {
+      width: fn-rem(150) !important;
+    }
+    .info {
+      font-size: fn-rem(12);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: fn-rem(60) 0 fn-rem(80);
+
+    .slide {
+      width: fn-rem(130) !important;
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: fn-rem(80) 0;
+  font-size: fn-rem(16);
+  color: #777;
+}
+
+.empty {
+  text-align: center;
+  padding: fn-rem(100) 0;
+  color: #aaa;
+  font-size: fn-rem(15);
+}

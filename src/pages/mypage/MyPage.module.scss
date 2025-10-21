@@ -1,0 +1,147 @@
+@use "sass:color";
+
+.page {
+  max-width: fn-rem(980);
+  margin: fn-rem(100) auto fn-rem(140);
+  padding: fn-rem(60);
+  background: #fff;
+  border-radius: fn-rem(20);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.05);
+  font-family: $font-base;
+  color: #222;
+
+  @include mq("md") {
+    padding: fn-rem(36) fn-rem(24);
+    margin: fn-rem(60) auto;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: fn-rem(32);
+  margin-bottom: fn-rem(60);
+  border-bottom: 1px solid #eee;
+  padding-bottom: fn-rem(40);
+}
+
+.avatar {
+  width: fn-rem(100);
+  height: fn-rem(100);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f1f1f1, #e7e7e7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+
+  svg {
+    font-size: fn-rem(60);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: fn-rem(6);
+
+  h2 {
+    font-size: fn-rem(22);
+    font-weight: 700;
+  }
+
+  p {
+    font-size: fn-rem(15);
+    color: #777;
+  }
+}
+
+.point {
+  margin-top: fn-rem(8);
+  display: inline-flex;
+  align-items: center;
+  gap: fn-rem(6);
+  padding: fn-rem(6) fn-rem(14);
+  background: $color-primary;
+  color: #fff;
+  border-radius: fn-rem(30);
+  font-size: fn-rem(14);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba($color-primary, 0.25);
+}
+
+.title {
+  font-size: fn-rem(20);
+  font-weight: 700;
+  margin-bottom: fn-rem(32);
+  border-left: fn-rem(4) solid $color-primary;
+  padding-left: fn-rem(12);
+  color: #111;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: fn-rem(28);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: fn-rem(36);
+}
+
+.saveBtn {
+  all: unset;
+  background: $color-primary;
+  color: #fff;
+  padding: fn-rem(12) fn-rem(32);
+  border-radius: fn-rem(30);
+  font-weight: 600;
+  font-size: fn-rem(15);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba($color-primary, 0.25);
+
+  &:hover {
+    background: color.scale($color-primary, $lightness: -5%);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.orders {
+  margin-top: fn-rem(80);
+}
+
+.ordersHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: fn-rem(24);
+}
+
+.count {
+  font-size: fn-rem(14);
+  color: #777;
+}
+
+.noOrders {
+  text-align: center;
+  color: #999;
+  padding: fn-rem(80) 0;
+  font-size: fn-rem(15);
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: fn-rem(120);
+  font-size: fn-rem(17);
+  color: #888;
+}

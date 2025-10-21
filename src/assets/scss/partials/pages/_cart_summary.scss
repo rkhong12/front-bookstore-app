@@ -1,0 +1,99 @@
+@use "@/assets/scss/partials/abstracts/" as *;
+.cart__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: fn-rem(40);
+  padding-top: fn-rem(20);
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: fn-rem(20);
+
+  &-left p {
+    font-size: fn-rem(16);
+    color: #333;
+
+    strong {
+      font-weight: 800;
+      color: #111;
+    }
+  }
+
+  /*  포인트 요약 카드 */
+  &-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: fn-rem(16);
+    text-align: right;
+
+    .cart__points {
+      width: fn-rem(380);
+      background: #fafaff;
+      border: 1px solid #e4e4ff;
+      border-radius: fn-rem(10);
+      padding: fn-rem(20);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: fn-rem(15);
+        color: #555;
+        margin-bottom: fn-rem(10);
+
+        span {
+          font-weight: 500;
+        }
+
+        strong {
+          font-weight: 700;
+          color: #111;
+        }
+
+        &.total {
+          border-top: 1px solid #ddd;
+          margin-top: fn-rem(12);
+          padding-top: fn-rem(12);
+
+          strong {
+            color: $color-primary;
+            font-size: fn-rem(16);
+          }
+        }
+      }
+    }
+
+    /*  결제 버튼 그룹 */
+    .cart__btn-group {
+      display: flex;
+      gap: fn-rem(10);
+      justify-content: flex-end;
+
+      .cart__btn {
+        all: unset;
+        background: $color-primary;
+        color: #fff;
+        padding: fn-rem(12) fn-rem(36);
+        border-radius: fn-rem(50);
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.25s ease;
+
+        &--all {
+          background: #5b5bd6;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

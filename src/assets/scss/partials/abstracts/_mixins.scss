@@ -1,0 +1,166 @@
+@use "sass:map";
+
+// reset margin/padding
+@mixin reset-margins {
+  margin: 0;
+  padding: 0;
+}
+
+// 숨김 요소 (접근성용)
+@mixin blind {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+}
+
+// 한 줄 또는 여러 줄 말줄임
+@mixin ellipsis($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// 반응형 (media query)
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@mixin mq($breakpoint, $type: max) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (#{$type}-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// input placeholder 스타일 통합
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// flex 정렬
+@mixin d-flex($align, $justify) {
+  display: flex;
+  @if ($align != 0) {
+    align-items: $align;
+  }
+  @if ($justify != 0) {
+    justify-content: $justify;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center-abs {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font($size, $line: null, $weight: normal) {
+  font-size: fn-rem($size);
+  font-weight: $weight;
+
+  @if $line != null {
+    line-height: ($line / $size);
+  }
+}
+
+@mixin fluid-font($min, $max) {
+  font-size: clamp(fn-rem($min), 1vw, fn-rem($max));
+}
+
+$z-index: (
+  "modal": 1000,
+  "header": 900,
+  "dropdown": 800,
+  "default": 1,
+);
+
+@mixin z($layer) {
+  z-index: map.get($z-index, $layer);
+}
+
+@mixin hover-opacity($opacity: 0.8) {
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: $opacity;
+  }
+}
+
+@mixin pos($type, $t: null, $r: null, $b: null, $l: null) {
+  position: $type;
+
+  @if $t != null {
+    top: $t;
+  }
+  @if $r != null {
+    right: $r;
+  }
+  @if $b != null {
+    bottom: $b;
+  }
+  @if $l != null {
+    left: $l;
+  }
+}
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin transition($props...) {
+  transition: $props;
+}
+
+@mixin hover-scale {
+  @include transition(transform 0.3s ease, box-shadow 0.3s ease);
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+}

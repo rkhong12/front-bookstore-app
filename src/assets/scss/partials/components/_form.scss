@@ -1,0 +1,50 @@
+@use "@/assets/scss/partials/abstracts/_index.scss" as *;
+@use "@/assets/scss/partials/base/_index.scss" as *;
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: fn-rem(6);
+  margin-bottom: fn-rem(18);
+
+  label {
+    font-weight: 600;
+    font-size: fn-rem(14);
+    color: #555;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: fn-rem(10) fn-rem(2);
+    font-size: fn-rem(15);
+    background: transparent;
+    transition: all 0.25s ease;
+    color: #222;
+    cursor: text; //  금지 아이콘 방지
+
+    &:focus {
+      outline: none;
+      border-color: #111;
+    }
+
+    &[readonly] {
+      cursor: default; //  금지 아이콘 대신 기본 커서
+      border-bottom: 1px dashed #ccc;
+      color: #555;
+      pointer-events: none; //  클릭은 막지만 시각적으로 동일
+    }
+  }
+
+  &.editable input {
+    border-color: #aaa;
+
+    &:focus {
+      border-color: #111;
+    }
+  }
+
+  &.readonly input {
+    border-bottom: 1px dashed #ccc;
+  }
+}

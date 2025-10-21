@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "sass:map";
+
+@function fn-rem($px, $base: 16) {
+  @return (math.div($px, $base)) * 1rem;
+}
+
+// @function em($px, $base: 16) {
+//   @if math.is-unitless($px) {
+//     $px: $px * 1px;
+//   }
+//   @return math.div($px, $base * 1px) * 1em;
+// }
+
+// // px → vw (1920 기준)
+// @function vw($px, $base: 1920px) {
+//   @return math.div($px, $base) * 100vw;
+// }
+
+// // px → vh (1180 기준)
+// @function vh($px, $base: 1180px) {
+//   @return math.div($px, $base) * 100vh;
+// }
+
+// @function contrast-color($bg, $light: #fff, $dark: #000) {
+//   $r: red($bg);
+//   $g: green($bg);
+//   $b: blue($bg);
+//   $luminance: ($r * 299 + $g * 587 + $b * 114) / 1000;
+
+//   @return if($luminance > 128, $dark, $light);
+// }
+
+// @function theme-color($map, $key) {
+//   @return map.get($map, $key);
+// }

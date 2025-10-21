@@ -1,0 +1,156 @@
+.container {
+  min-width: fn-rem(1000);
+  max-width: fn-rem(1400);
+  margin: fn-rem(60) auto fn-rem(120);
+  padding: 0 fn-rem(20);
+  font-family: $font-base;
+  color: #111;
+}
+
+.header {
+  margin-bottom: fn-rem(40);
+  border-bottom: 2px solid #111;
+  padding-bottom: fn-rem(16);
+}
+
+.title {
+  font-size: fn-rem(28);
+  font-weight: 800;
+}
+
+.desc {
+  font-size: fn-rem(14);
+  color: #777;
+  margin-top: fn-rem(4);
+}
+
+.form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: fn-rem(12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  padding: fn-rem(80) fn-rem(60);
+  display: flex;
+  flex-direction: column;
+  gap: fn-rem(40);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: fn-rem(60);
+
+  @include mq("md") {
+    grid-template-columns: 1fr;
+    gap: fn-rem(40);
+  }
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: fn-rem(16);
+
+  img {
+    width: fn-rem(220);
+    height: fn-rem(300);
+    object-fit: cover;
+    border-radius: fn-rem(12);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+.placeholder {
+  width: fn-rem(220);
+  height: fn-rem(300);
+  background: #f8f8f8;
+  border: 1px dashed #ccc;
+  border-radius: fn-rem(12);
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: fn-rem(14);
+}
+
+.fileLabel {
+  font-size: fn-rem(14);
+  font-weight: 600;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: fn-rem(8);
+  padding: fn-rem(8) fn-rem(18);
+  background: #fff;
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    background: #f5f5f5;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: fn-rem(20);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: fn-rem(12);
+  margin-top: fn-rem(10);
+  border-top: 1px solid #eee;
+  padding-top: fn-rem(24);
+
+  @include mq("md") {
+    justify-content: center;
+  }
+}
+
+.primaryBtn,
+.secondaryBtn {
+  all: unset;
+  cursor: pointer;
+  padding: fn-rem(14) fn-rem(40);
+  border-radius: fn-rem(50);
+  font-size: fn-rem(15);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.primaryBtn {
+  background: #2569ed;
+  color: #fff;
+
+  &:hover {
+    background: #1d52b3;
+    transform: translateY(-2px);
+  }
+}
+
+.secondaryBtn {
+  background: #f5f5f5;
+  color: #333;
+
+  &:hover {
+    background: #eee;
+    transform: translateY(-2px);
+  }
+}
+
+.denied {
+  text-align: center;
+  padding: fn-rem(100);
+  color: #888;
+}

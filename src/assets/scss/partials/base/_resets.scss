@@ -1,0 +1,160 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+/**
+reset
+**/
+* {
+  @include reset-margins;
+  box-sizing: border-box;
+  font-family: $font-base;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-black;
+}
+
+header,
+footer,
+section,
+article,
+aside,
+nav,
+hgroup,
+details,
+menu,
+figure,
+figcaption {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+input,
+textarea {
+  border: 0;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+  border-radius: 0px;
+  /* iOS 둥근모서리 제거 */
+}
+
+input,
+select,
+textarea,
+button {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+textarea {
+  resize: none;
+}
+
+select {
+  cursor: pointer;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: hidden;
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+}
+
+th,
+td {
+  border-collapse: collapse;
+}
+
+caption,
+legend {
+  @include blind;
+}
+
+form,
+fieldset,
+iframe,
+button,
+hr {
+  border: 0;
+}
+
+i,
+em,
+address {
+  font-style: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  border: 0;
+  vertical-align: top;
+}
+
+a {
+  outline: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+strong {
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+}
